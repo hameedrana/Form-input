@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./core-style/common-styling.scss";
+
+.field-input {
+  font-family: "Roboto, Helvetica, Arial, sans-serif";
+  width: 30%;
+  border: 1px solid #c2c2c2;
+  // border: none;
+  border-radius: 10px;
+  padding: 0.5rem;
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.error-message {
+  color: #f44336; /* Red color for error message */
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.selected-value {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.selected-value h3 {
+  margin: 0 0 5px;
+  font-size: 16px;
+  color: #333;
+}
+
+.selected-value p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

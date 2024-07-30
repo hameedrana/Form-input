@@ -1,0 +1,12 @@
+$secondary-font: "Roboto, Helvetica, Arial, sans-serif";
+
+.field-input{
+font-family: "Roboto, Helvetica, Arial, sans-serif";
+width: 30%;
+border: 1px solid #c2c2c2;
+border-radius: 12px;
+padding: .5rem;
+&:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
