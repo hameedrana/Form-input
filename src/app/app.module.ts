@@ -13,13 +13,15 @@ import { AutocompleteInputComponent } from './form-fields/autocomplete-input/aut
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { UploadFileComponent } from './form-fields/upload-file/upload-file.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InputTextComponent,
     DropDownComponent,
-    AutocompleteInputComponent
+    AutocompleteInputComponent,
+    UploadFileComponent
     
   ],
   imports: [

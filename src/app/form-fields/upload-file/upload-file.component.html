@@ -1,0 +1,17 @@
+<input 
+type="file" 
+(change)="onFileSelected($event)" 
+accept="image/*" />
+<div *ngIf="imageData" 
+
+>
+  <img [src]="imageData" alt="Selected Image" style="width: 200px ;" 
+
+  
+  />
+</div>
+<div
+*ngIf="showError"
+ [ngClass]="errorClass">
+  {{ errorMessage }}
+</div>

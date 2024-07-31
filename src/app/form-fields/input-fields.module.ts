@@ -8,11 +8,7 @@ import {NgFor, AsyncPipe} from '@angular/common';
 
 
 @NgModule({
-  declarations: [
-  
-  
-
-  ],
+  declarations: [],
   imports: [
     CommonModule,
     AppRoutingModule,

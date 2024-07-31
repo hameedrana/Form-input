@@ -19,18 +19,25 @@ export class AppComponent {
   selectedOption: string = 'Option 1'; // To store the selected option
   autoSuggestDropDownOptions: string[] = ['Hameed', 'Saad','zeshan','moshin','bilal']
   autoSuggestInputValue: string = '';// Holds the autoSuggest input value received from the child
+  imageData: string | ArrayBuffer | null = null;
+
   myForm:FormGroup
   
   constructor(){
     this.myForm = new FormGroup({
       textInput: new FormControl('', [Validators.required]),
       dropDownInput: new FormControl('', [Validators.required]),
-      autoSuggestDropDown:new FormControl('', [Validators.required])
+      autoSuggestDropDown:new FormControl('', [Validators.required]),
+      userImg:new FormControl('', [Validators.required]),
        
     });
    }
    get InputText(){
     return this.myForm.get('textInput')
+  }
+  displayImage(newValue: string | ArrayBuffer | null): void {
+    this.myForm.controls['userImg'].setValue(newValue)
+    this.imageData = newValue;
   }
 
   handleDropdownChange(newValue: string): void {

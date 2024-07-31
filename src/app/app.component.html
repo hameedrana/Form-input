@@ -54,8 +54,21 @@
   [showError] = "myForm.get('autoSuggestDropDown')?.errors?.['required'] && myForm.get('autoSuggestDropDown')?.invalid"
   ></app-autocomplete-input>
 </div>
-</form>
 
+
+<app-upload-file 
+(imageSelected)="displayImage($event)"
+[errorClass]="currentErrorClass"
+  [showError] = "myForm.get('userImg')?.errors?.['required'] && myForm.get('userImg')?.invalid"
+>
+</app-upload-file>
+
+</form>
+<!-- <div *ngIf="imageData" class="image-display">
+  <img [src]="imageData" alt="Selected Image" />
+</div> -->
+
+ 
 <div class="selected-value"
 >
   <h3>Selected Option:</h3>

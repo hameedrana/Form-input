@@ -20,8 +20,6 @@ export class AutocompleteInputComponent implements OnInit{
   constructor(){}
   onInputChange() {
     this.selectionChange.emit(this.selectedOption);
-   
-    
   }
   getValue(value: string) {
     this.selectedOption = value;
