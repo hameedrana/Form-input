@@ -7,17 +7,13 @@
   [matDatepicker]="picker"
 />
 <mat-hint>MM/DD/YYYY</mat-hint>
-<mat-datepicker-toggle 
-matIconSuffix [for]="picker"
-
-></mat-datepicker-toggle>
-<mat-datepicker #picker 
-(click)="getValue(autoInput.value)"
-(change)="onOptionSelect($event)"
+<mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+<mat-datepicker
+  #picker
+  (click)="getValue(autoInput.value)"
+  (change)="onOptionSelect($event)"
 ></mat-datepicker>
 
-<div
-*ngIf="showError"
- [ngClass]="errorClass">
+<div *ngIf="showError" [ngClass]="errorClass">
   {{ errorMessage }}
 </div>

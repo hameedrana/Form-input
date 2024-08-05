@@ -10,14 +10,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropDownComponent } from './form-fields/drop-down/drop-down.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AutocompleteInputComponent } from './form-fields/autocomplete-input/autocomplete-input.component';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { UploadFileComponent } from './form-fields/upload-file/upload-file.component';
 import { DatePickerComponent } from './form-fields/date-picker/date-picker.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
-import {MatTableModule} from '@angular/material/table';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatTableModule } from '@angular/material/table';
 import { TableInputComponent } from './form-fields/table-input/table-input.component';
 
 @NgModule({
@@ -29,8 +29,6 @@ import { TableInputComponent } from './form-fields/table-input/table-input.compo
     UploadFileComponent,
     DatePickerComponent,
     TableInputComponent,
-
-    
   ],
   imports: [
     CommonModule,
@@ -48,6 +46,6 @@ import { TableInputComponent } from './form-fields/table-input/table-input.compo
     MatTableModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

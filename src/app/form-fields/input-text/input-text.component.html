@@ -1,19 +1,14 @@
 <p>input-text works!</p>
- 
-  <input
+
+<input
   id="textInput"
-    [type]="inputType"
-    [ngClass]="inputClass"
-    [placeholder]="placeHolder"
-    [(ngModel)]="inputValue"
-    (input)="onInputChange()"
+  [type]="inputType"
+  [ngClass]="inputClass"
+  [placeholder]="placeHolder"
+  [(ngModel)]="inputValue"
+  (input)="onInputChange()"
+/>
 
-  />
-  
-
- 
-  <div *ngIf="showError"
-  [ngClass]="errorClass"
-  >
-  {{errorMessage}}
-  </div>
+<div *ngIf="showError" [ngClass]="errorClass">
+  {{ errorMessage }}
+</div>

@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'app-upload-file',
   templateUrl: './upload-file.component.html',
-  styleUrls: ['./upload-file.component.scss']
+  styleUrls: ['./upload-file.component.scss'],
 })
 export class UploadFileComponent {
   @Input() errorClass: string = '';
@@ -11,12 +11,9 @@ export class UploadFileComponent {
   @Input() showError: boolean = false;
   @Output() imagesSelected = new EventEmitter<string[]>();
   imageData: string[] = [];
-  
-  constructor(){
-   
-  }
-  
-  
+
+  constructor() {}
+
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
 

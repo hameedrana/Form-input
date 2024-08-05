@@ -1,99 +1,79 @@
 <div class="inputFormDetails">
   <h1>hello</h1>
-<div>
-  <label for="inputType">Select Input Type:</label>
-  <select
-    id="inputType"
-    (change)="placeholders()"
-    [(ngModel)]="currentInputType"
-    name="inputType"
-  >
-    <option value="text">Text</option>
-    <option value="number">Number</option>
-    <option value="password">Password</option>
-    <option value="email">Email</option>
-  </select>
+  <div>
+    <label for="inputType">Select Input Type:</label>
+    <select
+      id="inputType"
+      (change)="placeholders()"
+      [(ngModel)]="currentInputType"
+      name="inputType"
+    >
+      <option value="text">Text</option>
+      <option value="number">Number</option>
+      <option value="password">Password</option>
+      <option value="email">Email</option>
+    </select>
+  </div>
+  <form [formGroup]="myForm">
+    <app-input-text
+      [inputType]="currentInputType"
+      [inputClass]="currentInputClass"
+      [errorClass]="currentErrorClass"
+      [placeHolder]="placeholderText"
+      (inputValueChange)="handleInputValueChange($event)"
+      [showError]="myForm.get('textInput')?.errors?.['required'] && myForm.get('textInput')?.invalid"
+      [errorMessage]="errorMessage"
+    >
+    </app-input-text>
 
-  
-</div>
-<form  [formGroup]="myForm">
+    <!-- [ngClass]="errorClass" -->
+    <div>
+      <h1>dropdown</h1>
+    </div>
+    <app-drop-down
+      [options]="dropdownOptions"
+      (selectionChange)="handleSelectionChange($event)"
+      [errorClass]="currentErrorClass"
+      [dropdownClass]="currentDropDownClass"
+      [showError]="myForm.get('dropDownInput')?.errors?.['required'] && myForm.get('dropDownInput')?.invalid"
+      [errorMessage]="errorMessage"
+    >
+    </app-drop-down>
 
-<app-input-text
-  [inputType]="currentInputType"
-  [inputClass]="currentInputClass"
-  [errorClass]="currentErrorClass"
-  [placeHolder]="placeholderText"
-  (inputValueChange)="handleInputValueChange($event)"
-  [showError] = "myForm.get('textInput')?.errors?.['required'] && myForm.get('textInput')?.invalid"
-  [errorMessage] = "errorMessage"
-  
-  
->
-</app-input-text>
+    <div class="auto-complete">
+      <app-autocomplete-input
+        [options]="autoSuggestDropDownOptions"
+        (selectionChange)="handleDropdownChange($event)"
+        [errorClass]="currentErrorClass"
+        [showError]="myForm.get('autoSuggestDropDown')?.errors?.['required'] && myForm.get('autoSuggestDropDown')?.invalid"
+      ></app-autocomplete-input>
+    </div>
 
-<!-- [ngClass]="errorClass" -->
-<div>
-  <h1>dropdown</h1>
+    <app-upload-file
+      (imagesSelected)="displayImages($event)"
+      [errorClass]="currentErrorClass"
+      [showError]="myForm.get('userImg')?.errors?.['required'] && myForm.get('userImg')?.invalid"
+    >
+    </app-upload-file>
 
-</div>
-<app-drop-down
-[options]="dropdownOptions"
-(selectionChange)="handleSelectionChange($event)"
-[errorClass]="currentErrorClass"
-[dropdownClass]="currentDropDownClass"
-[showError] = "myForm.get('dropDownInput')?.errors?.['required'] && myForm.get('dropDownInput')?.invalid"
-  [errorMessage] = "errorMessage"
+    <app-date-picker
+      (selectionChange)="datePicker($event)"
+      [errorClass]="currentErrorClass"
+      [showError]="myForm.get('datepicker')?.errors?.['required'] && myForm.get('datepicker')?.invalid"
+    >
+    </app-date-picker>
 
->
-</app-drop-down>
+    <app-table-input [tableData]="dataSource"> </app-table-input>
+  </form>
 
-<div class="auto-complete">
-  <app-autocomplete-input
-  [options]="autoSuggestDropDownOptions"
-  (selectionChange)=" handleDropdownChange($event)"
-  [errorClass]="currentErrorClass"
-  [showError] = "myForm.get('autoSuggestDropDown')?.errors?.['required'] && myForm.get('autoSuggestDropDown')?.invalid"
-  ></app-autocomplete-input>
-</div>
+  <div class="selected-value">
+    <h3>Selected Option:</h3>
+    <p>{{ selectedOption }}</p>
+  </div>
 
-
-<app-upload-file 
-(imagesSelected)="displayImages($event)"
-[errorClass]="currentErrorClass"
-  [showError] = "myForm.get('userImg')?.errors?.['required'] && myForm.get('userImg')?.invalid"
->
-</app-upload-file>
-
-<app-date-picker
-(selectionChange)=" datePicker($event)"
-[errorClass]="currentErrorClass"
-  [showError] = "myForm.get('datepicker')?.errors?.['required'] && myForm.get('datepicker')?.invalid"
->
-
-</app-date-picker>
-
-<app-table-input 
-[tableData]="dataSource"
->
-
-</app-table-input>
-
-</form>
-<!-- <div *ngIf="imageData" class="image-display">
-  <img [src]="imageData" alt="Selected Image" />
-</div> -->
-
- 
-<div class="selected-value"
->
-  <h3>Selected Option:</h3>
-  <p>{{ selectedOption }}</p>
-</div>
-
-<div>
-  <h3>input data will be display here</h3>
-  <p>{{ receivedInputValue }}</p>
-</div>
-
+  <div>
+    <h3>input data will be display here</h3>
+    <p>{{ receivedInputValue }}</p>
+  </div>
 </div>
 <router-outlet></router-outlet>

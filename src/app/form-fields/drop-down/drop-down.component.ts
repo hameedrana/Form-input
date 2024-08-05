@@ -1,11 +1,10 @@
-import { Component, Input, Output, EventEmitter} from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
 
 @Component({
   selector: 'app-drop-down',
   templateUrl: './drop-down.component.html',
-  styleUrls: ['./drop-down.component.scss']
+  styleUrls: ['./drop-down.component.scss'],
 })
 export class DropDownComponent {
   @Input() options: string[] | null = []; // Receive options as input
@@ -18,14 +17,12 @@ export class DropDownComponent {
 
   selectedOption: string = ''; // Store the selected option
 
-
-  constructor(){}
+  constructor() {}
   // Emit the selected option when user selects an option
   onOptionSelect(event: Event): void {
     const selectElement = event.target as HTMLSelectElement;
     const optionValue = selectElement.value;
     this.selectedOption = optionValue;
     this.selectionChange.emit(this.selectedOption);
-    
   }
 }

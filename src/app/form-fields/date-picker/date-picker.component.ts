@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-date-picker',
   templateUrl: './date-picker.component.html',
-  styleUrls: ['./date-picker.component.scss']
+  styleUrls: ['./date-picker.component.scss'],
 })
 export class DatePickerComponent {
   @Input() errorClass: string = '';
@@ -16,18 +16,16 @@ export class DatePickerComponent {
   onInputChange() {
     this.selectionChange.emit(this.selectedDate);
   }
- 
+
   getValue(value: string) {
     this.selectedDate = value;
     this.selectionChange.emit(this.selectedDate);
-    
   }
-  
+
   onOptionSelect(event: Event): void {
     const selectElement = event.target as HTMLSelectElement;
     const optionValue = selectElement.value;
     this.selectedDate = optionValue;
     this.selectionChange.emit(this.selectedDate);
-    
   }
 }
