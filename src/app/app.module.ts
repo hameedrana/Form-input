@@ -14,6 +14,11 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { UploadFileComponent } from './form-fields/upload-file/upload-file.component';
+import { DatePickerComponent } from './form-fields/date-picker/date-picker.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatTableModule} from '@angular/material/table';
+import { TableInputComponent } from './form-fields/table-input/table-input.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +26,10 @@ import { UploadFileComponent } from './form-fields/upload-file/upload-file.compo
     InputTextComponent,
     DropDownComponent,
     AutocompleteInputComponent,
-    UploadFileComponent
+    UploadFileComponent,
+    DatePickerComponent,
+    TableInputComponent,
+
     
   ],
   imports: [
@@ -35,6 +43,9 @@ import { UploadFileComponent } from './form-fields/upload-file/upload-file.compo
     MatFormFieldModule,
     MatInputModule,
     MatAutocompleteModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

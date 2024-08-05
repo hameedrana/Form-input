@@ -1,0 +1,23 @@
+<mat-label>Choose a date</mat-label>
+<input
+  matInput
+  #autoInput
+  [(ngModel)]="selectedDate"
+  (input)="onInputChange()"
+  [matDatepicker]="picker"
+/>
+<mat-hint>MM/DD/YYYY</mat-hint>
+<mat-datepicker-toggle 
+matIconSuffix [for]="picker"
+
+></mat-datepicker-toggle>
+<mat-datepicker #picker 
+(click)="getValue(autoInput.value)"
+(change)="onOptionSelect($event)"
+></mat-datepicker>
+
+<div
+*ngIf="showError"
+ [ngClass]="errorClass">
+  {{ errorMessage }}
+</div>

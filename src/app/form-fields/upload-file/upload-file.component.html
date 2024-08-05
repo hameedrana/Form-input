@@ -1,15 +1,25 @@
+<label for="fileInput" class="icon-label">
+  <div>
+    <div><span>file upload</span></div>
+  <img src="assets/file-upload-svgrepo-com.svg" alt="" style="width: 20px;" >
+  </div>
+</label>
+
+
 <input 
 type="file" 
+id="fileInput"
 (change)="onFileSelected($event)" 
-accept="image/*" />
-<div *ngIf="imageData" 
-
->
-  <img [src]="imageData" alt="Selected Image" style="width: 200px ;" 
-
-  
-  />
+accept="image/*" 
+hidden
+multiple
+/>
+<div *ngIf="imageData.length > 0" class="preview">
+  <div *ngFor="let image of imageData" class="image-container">
+    <img [src]="image" alt="Selected Image" />
+  </div>
 </div>
+
 <div
 *ngIf="showError"
  [ngClass]="errorClass">

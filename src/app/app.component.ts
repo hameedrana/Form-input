@@ -1,6 +1,27 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
+
+export interface PeriodicElement {
+  name: string;
+  position: number;
+  weight: number;
+  symbol: string;
+}
+
+const ELEMENT_DATA: PeriodicElement[] = [
+  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
+  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
+  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
+  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
+  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
+  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
+  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
+  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
+  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
+  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+];
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,7 +40,10 @@ export class AppComponent {
   selectedOption: string = 'Option 1'; // To store the selected option
   autoSuggestDropDownOptions: string[] = ['Hameed', 'Saad','zeshan','moshin','bilal']
   autoSuggestInputValue: string = '';// Holds the autoSuggest input value received from the child
-  imageData: string | ArrayBuffer | null = null;
+  datePickerInputValue: string = '';// Hold
+  imageData: string[] = [];
+  dataSource = ELEMENT_DATA;
+  
 
   myForm:FormGroup
   
@@ -29,21 +53,25 @@ export class AppComponent {
       dropDownInput: new FormControl('', [Validators.required]),
       autoSuggestDropDown:new FormControl('', [Validators.required]),
       userImg:new FormControl('', [Validators.required]),
-       
+      datepicker:new FormControl('', [Validators.required]),
     });
    }
    get InputText(){
     return this.myForm.get('textInput')
   }
-  displayImage(newValue: string | ArrayBuffer | null): void {
+  displayImages(newValue: string[]): void {
     this.myForm.controls['userImg'].setValue(newValue)
     this.imageData = newValue;
+  }
+  datePicker(newValue: string): void {
+    this.myForm.controls['datepicker'].setValue(newValue)
+    this.datePickerInputValue=newValue
+    
   }
 
   handleDropdownChange(newValue: string): void {
     this.myForm.controls['autoSuggestDropDown'].setValue(newValue)
     this.autoSuggestInputValue=newValue
-    
   }
 
 

@@ -1,4 +1,5 @@
-<h1>hello</h1>
+<div class="inputFormDetails">
+  <h1>hello</h1>
 <div>
   <label for="inputType">Select Input Type:</label>
   <select
@@ -57,11 +58,25 @@
 
 
 <app-upload-file 
-(imageSelected)="displayImage($event)"
+(imagesSelected)="displayImages($event)"
 [errorClass]="currentErrorClass"
   [showError] = "myForm.get('userImg')?.errors?.['required'] && myForm.get('userImg')?.invalid"
 >
 </app-upload-file>
+
+<app-date-picker
+(selectionChange)=" datePicker($event)"
+[errorClass]="currentErrorClass"
+  [showError] = "myForm.get('datepicker')?.errors?.['required'] && myForm.get('datepicker')?.invalid"
+>
+
+</app-date-picker>
+
+<app-table-input 
+[tableData]="dataSource"
+>
+
+</app-table-input>
 
 </form>
 <!-- <div *ngIf="imageData" class="image-display">
@@ -80,4 +95,5 @@
   <p>{{ receivedInputValue }}</p>
 </div>
 
+</div>
 <router-outlet></router-outlet>
